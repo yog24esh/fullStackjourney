@@ -1,8 +1,53 @@
+var p1 = 0;
+var p2 = 0;
+var disp1 = document.querySelector("#one");
+var disp2 = document.querySelector("#two");
+
+
+document.querySelector("#p1").addEventListener("click",function(){
+	p1++;
+	disp1.textContent  = p1;
+});
+
+document.querySelector("#p2").addEventListener("click",function(){
+	p2++;
+	disp2.textContent = p2;
+});
+
+document.querySelector("#reset").addEventListener("click",function(){
+	p1=0;p2=0;
+	disp1.textContent = 0;
+	disp2.textContent = 0;
+});
+
+var score = document.querySelector("#score").textContent 
+var number = document.querySelector("#number").textContent;
+if(number>score){
+	score = number;
+}
+/*
+var arr = [
+		{
+		title:["3idiots","dangal","hello"],
+		rating:[5,5,3],
+		hasWatched:["watched","not seen","seen"]
+	},
+];
+
+for(var i=0;i<arr[0].title.length;i++){
+	console.log("you have "+arr[0].hasWatched[i] +arr[0].title[i] + " - " + arr[0].rating[i] + " stars");
+}3
+
+
+
+/*
 var arr = [1,2,3,4];
-function printReverse(arr){
-	for(var i=arr.length-1;i>=0;i++){
-		console.log(arr[i]);
-	}
+var sum = 0;
+function sumArray(arr){
+	arr.forEach(function (item){
+			sum += item;
+	})
+console.log(sum);
 }
 
 
@@ -10,17 +55,13 @@ function printReverse(arr){
 
 
 
+function printReverse(arr){
+	for(var i=arr.length-1;i>=0;i--){
+		console.log(arr[i]);
+	}
+}
 
-
-
-
-
-
-
-
-
-/*
-var ans = prompt("what would you like to do");
+/*var ans = prompt("what would you like to do");
 var arr = [];
 while(ans!="quit"){
 	if(ans=="new") {
