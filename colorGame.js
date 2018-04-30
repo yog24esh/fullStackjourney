@@ -1,10 +1,56 @@
-var colors = generateRandomColors(6);
-
+var numSquare = 6;
+var colors = generateRandomColors(numSquare);
 var squares = document.querySelectorAll(".square");
 var pickedColor = pickColor(); 
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1  = document.querySelector("h1");
+var resetButton = document.querySelector("#reset");
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");	
+
+easyBtn.addEventListener("click",function(){
+	hardBtn.classList.remove("selected");
+	easyBtn.classList.add("selected");
+	numSquare = 3;
+	colors = generateRandomColors(numSquare);
+	pickedColor = pickColor();
+	colorDisplay.textContent = pickedColor;
+	for(var i=0;i<squares.length;i++){
+		if(colors[i]){
+			squares[i].style.background = colors[i];
+		}
+		else{
+			squares[i].style.display = "none";
+		}
+	}
+})	;
+hardBtn.addEventListener("click",function(){
+	easyBtn.classList.remove("selected");
+	hardBtn.classList.add("selected");
+	numSquare = 6
+	colors = generateRandomColors(numSquare);
+	pickedColor = pickColor();
+	colorDisplay.textContent = pickedColor;
+	for(var i=0;i<squares.length;i++){
+			squares[i].style.background = colors[i];
+			squares[i].style.display = "block";
+		}
+});
+	
+resetButton.addEventListener("click",function(){
+	//new color + picknewRandomcolor from arrrary //choose color of quare
+	colors = generateRandomColors(numSquare); 
+	pickedColor = pickColor();
+	colorDisplay.textContent = pickedColor;
+	for(var i=0;i<squares.length;i++){
+		squares[i].style.background = colors[i];
+	}
+	h1.style.background = "steelblue";
+
+
+});
+
 colorDisplay.textContent = pickedColor;
 for(var i=0;i<squares.length;i++){
 	squares[i].style.background = colors[i];
@@ -16,7 +62,7 @@ for(var i=0;i<squares.length;i++){
 		 messageDisplay.textContent = "Correct";
 		 changeColors(clickedColor);
 		 h1.style.background = clickedColor ; 
-
+		 resetButton.textContent = "Play Again";
 		}
 		else { 
 			this.style.background = "#232323";
