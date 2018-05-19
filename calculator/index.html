@@ -21,16 +21,40 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div class="container">
-            <div class="item1"><input type="text" id="txt"></div>
-            <div class="item2"><button>1</button><button>2</button><button>3</button><button>+</button></div>
-            <div class="item3"><button>4</button><button>5</button><button>6</button><button>-</button></div>
-            <div class="item4"><button>7</button><button>8</button><button>9</button><button>*</button></div>
-            <div class="item5"><button>0</button><button>.</button><button id="sum">=</button><button>/</button></div>
+            <input type="text" id="txt" placeholder="0000000">
+            <div><button class="btn">4</button> <button class="btn">5</button> <button class="btn">6</button> <button class="btn">-</button></div>
+            <div><button class="btn">7</button> <button class="btn">8</button> <button class="btn">9</button> <button class="btn">*</button></div>
+            <div><button class="btn" >1</button> <button class="btn">2</button> <button class="btn">3</button> <button class="btn">+</button></div>
+            <div><button class="btn">0</button> <button class="btn btn2" >.</button> <button id="sum">=</button> <button class="btn">/</button></div>
         </div>
         <script>
-            document.getElementById("sum").addEventListener("click",function(){
-                alert(document.querySelector("#txt").value);
-            });
+            var display = 0;
+            var len = document.querySelectorAll(".btn");
+
+            for(var i=0;i<len.length;i++){
+                len[i].addEventListener("click",function(){
+                    
+                    display += this.innerHTML ;
+                    
+                    document.querySelector("#txt").value = display;
+                
+                })
+            }
+            document.querySelector("#sum").addEventListener("click",function(){
+                document.querySelector("#txt").value = eval(display);
+            })
+            document.querySelector(".btn2").addEventListener("click",function(){
+                display  = 0;
+            })
+
+            // }
+            // len[0].addEventListener("click",function(){
+            //     alert("hello");
+            // })
+            // document.getElementById("sum").addEventListener("click",function(){
+            //     alert(document.querySelector("#txt").value);
+            // });
+            
         </script>
     </body>
 </html>
