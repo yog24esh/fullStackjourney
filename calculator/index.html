@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>javascript calculator</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            .container{
+                font-weight:500;
+                border:2px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="container">
+            <div class="item1"><input type="text" id="txt"></div>
+            <div class="item2"><button>1</button><button>2</button><button>3</button><button>+</button></div>
+            <div class="item3"><button>4</button><button>5</button><button>6</button><button>-</button></div>
+            <div class="item4"><button>7</button><button>8</button><button>9</button><button>*</button></div>
+            <div class="item5"><button>0</button><button>.</button><button id="sum">=</button><button>/</button></div>
+        </div>
+        <script>
+            document.getElementById("sum").addEventListener("click",function(){
+                alert(document.querySelector("#txt").value);
+            });
+        </script>
+    </body>
+</html>
