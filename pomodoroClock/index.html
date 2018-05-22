@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Pomodoro Clock</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .circle{
+                margin-top:30%;
+                margin-left:30%;
+                margin-right:30%;
+                border:1px solid green;
+                text-align:center;
+        }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <button id="decc">-</button><input type="textarea" value="5" id="time"><button id="inc">+</button>
+        <div class="circle">
+            <h2>5</h2>
+        </div>
+        <button id="start">Start</button>
+        <script>
+            var el = parseInt(document.querySelector("h2").textContent);
+                stop = 0;
+                time = parseInt(document.querySelector("#time").value);
+
+            function dec(){
+                el--;
+                document.querySelector("h2").textContent = el;
+                if(el<1) clearInterval(stop);
+            }
+         
+         document.querySelector("#decc").addEventListener("click",function(){
+                if(el>=0&&time>=0){       //timer shoud not be less than zero
+                el = parseInt(--document.querySelector("#time").value) ;
+                document.querySelector("h2").textContent = el;
+                }
+         });
+         document.querySelector("#inc").addEventListener("click",function(){
+                el = parseInt(++document.querySelector("#time").value);
+                document.querySelector("h2").textContent = el;
+         })
+        document.querySelector("#start").addEventListener("click",function(){
+           stop=window.setInterval(dec,1000);
+        })  
+
+
+        </script>
+        <script src="" async defer></script>
+    </body>
+</html>
