@@ -13,7 +13,22 @@
             .container{
                 font-weight:500;
                 border:2px solid black;
+                margin-left: 15em;
+                margin-right:60%;
+                margin-top:20em;
             }
+            .btn, .reset, .equal{
+                border-radius:50%;
+                padding:25px;
+                margin:10px 10px 10px 10px;
+            }
+            #txt{
+                padding:20px;
+                width:300px;
+                border-color:white;
+                font-size:xx-large;
+            }
+
         </style>
     </head>
     <body>
@@ -21,39 +36,30 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <div class="container">
-            <input type="text" id="txt" placeholder="0000000">
-            <div><button class="btn">4</button> <button class="btn">5</button> <button class="btn">6</button> <button class="btn">-</button></div>
-            <div><button class="btn">7</button> <button class="btn">8</button> <button class="btn">9</button> <button class="btn">*</button></div>
-            <div><button class="btn" >1</button> <button class="btn">2</button> <button class="btn">3</button> <button class="btn">+</button></div>
-            <div><button class="btn">0</button> <button class="btn btn2" >.</button> <button id="sum">=</button> <button class="btn">/</button></div>
-        </div>
-        <script>
-            var display = 0;
+            <input type="text" id="txt" placeholder="0000000" readonly>
+            <div><button class="btn">4</button> <button class="btn">5</button> <button class="btn">6</button> <button class="subtract btn">-</button></div>
+            <div><button class="btn">7</button> <button class="btn">8</button> <button class="btn">9</button> <button class="multiply btn">*</button></div>
+            <div><button class="btn" >1</button> <button class="btn">2</button> <button class="btn">3</button> <button class="add btn">+</button></div>
+            <div><button class="btn">0</button><button class="reset">reset</button><button class="equal">=</button><button class="divide btn">/</button></div>
+</div>
+<script>
+            var display = "";
             var len = document.querySelectorAll(".btn");
-
             for(var i=0;i<len.length;i++){
                 len[i].addEventListener("click",function(){
-                    
-                    display += this.innerHTML ;
-                    
-                    document.querySelector("#txt").value = display;
-                
+                   
+                   display += this.innerHTML;
+                   document.querySelector("#txt").value = display;
                 })
             }
-            document.querySelector("#sum").addEventListener("click",function(){
+            document.querySelector(".equal").addEventListener("click",function(){
                 document.querySelector("#txt").value = eval(display);
-            })
-            document.querySelector(".btn2").addEventListener("click",function(){
-                display  = 0;
-            })
+                display = eval(display);
 
-            // }
-            // len[0].addEventListener("click",function(){
-            //     alert("hello");
-            // })
-            // document.getElementById("sum").addEventListener("click",function(){
-            //     alert(document.querySelector("#txt").value);
-            // });
+            })
+            document.querySelector(".reset").addEventListener("click",function(){
+                document.querySelector("#txt").value = 0;
+            })
             
         </script>
     </body>
