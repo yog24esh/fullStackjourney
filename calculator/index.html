@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>javascript calculator</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .container {
+            font-weight: 500;
+            border: 2px solid black;
+            margin: auto;
+            margin-top: 100px;
+            width: 360px;
+
+        }
+
+        .btn,
+        .reset,
+        .equal {
+            border: 1px solid black;
+            border-radius: 50%;
+            padding: 25px;
+            margin: 10px 10px 10px 10px;
+        }
+
+        #txt {
+            padding: 20px;
+            width: 300px;
+            border-color: white;
+            font-size: xx-large;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 align="center">Javascript calculator</h1>
+    <div class="container">
+        <input type="text" id="txt" placeholder="0000000" readonly>
+        <div>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="subtract btn">-</button>
+        </div>
+        <div>
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="multiply btn">*</button>
+        </div>
+        <div>
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="add btn">+</button>
+        </div>
+        <div>
+            <button class="btn">0</button>
+            <button class="reset">reset</button>
+            <button class="equal">=</button>
+            <button class="divide btn">/</button>
+        </div>
+    </div>
+    <script>
+        var display = "";
+        var len = document.querySelectorAll(".btn");
+        for (var i = 0; i < len.length; i++) {
+            len[i].addEventListener("click", function () {
+                display += this.innerHTML;
+                document.querySelector("#txt").value = display;
+            })
+        }
+        document.querySelector(".equal").addEventListener("click", function () {
+            document.querySelector("#txt").value = eval(display);
+            display = "";
+
+        })
+        document.querySelector(".reset").addEventListener("click", function () {
+            document.querySelector("#txt").value = 0;
+       
+        })
+    </script>
+</body>
+
+</html>
