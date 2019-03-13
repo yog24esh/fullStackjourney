@@ -7,16 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="paper-full.js"></script>
-    <script type="text/paperscript" canvas="myCanvas">
-       
 
-        for(var i=0;i<1000;i=i+100){
-            for(var j=0;j<1000;j=j+100){
-            var manyCircle = new Path.Circle(new Point(100+i,70+j),10);
-            manyCircle.fillColor = "purple";
-        }
+    <script type="text/paperscript" canvas="myCanvas">
+    function onKeyDown(){  
+    var maxPoint = new Point(view.size.width,view.size.height);
+    var randomPoint = Point.random();
+    var point = maxPoint * randomPoint ;
+    new Path.Circle(point,10).fillColor = "orange";
+    }
+    var animatedCircle = new Path.Circle(new Point(500,500),100);
+    animatedCircle.fillColor="red";
+    
+    function onFrame(event){
+        animatedCircle.fillColor.hue += 1;
+        animatedCircle.scale(.9 456);
     }
     </script>
+
 </head>
 <body>
     <canvas id="myCanvas"></canvas>
